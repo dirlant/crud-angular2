@@ -1,0 +1,11 @@
+<p>
+  contact works!
+</p>
+
+<div *ngIf="parameter">
+	<h2>{{parameter}}</h2>
+</div>
+
+<div *ngIf="!parameter">
+	<button (click)="redirect('/contact', 'hola todo bien?')"> Redirigir</button>
+</div>

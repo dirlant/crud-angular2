@@ -1,0 +1,18 @@
+
+
+	<nav class="navbar navbar-default ">
+		<ul class="nav navbar-nav">
+		  <li role="presentation"><a [routerLink]="['/home']" [routerLinkActive]="'active'">Inicio</a></li>
+		  <li role="presentation"><a [routerLink]="['/fruit']" [routerLinkActive]="'active'">Frutas</a></li>
+		  <li role="presentation"><a [routerLink]="['/employe']" [routerLinkActive]="'active'">Empleados</a></li>
+		  <li role="presentation"><a [routerLink]="['/contact']" [routerLinkActive]="'active'">Contactos</a></li>
+		  <li role="presentation"><a [routerLink]="['/car']" [routerLinkActive]="'active'">Carros</a></li>
+		  <li role="presentation"><a [routerLink]="['/templates']" [routerLinkActive]="'active'">Plantillas</a></li>
+		  <li role="presentation"><a [routerLink]="['/productos']" [routerLinkActive]="'active'">Productos</a></li>
+		</ul>
+	</nav>
+
+
+
+<!-- <app-employe></app-employe> -->
+<router-outlet></router-outlet>

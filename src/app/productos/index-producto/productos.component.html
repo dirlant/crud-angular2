@@ -1,0 +1,64 @@
+
+<content>
+	<div class="container">
+		<br>
+		<div class="row">
+			<div class="well well-lg">index-product Component</div>
+			<a class="btn btn-default" role="button" [routerLink]="['/product-add']" >Agregar producto</a>			
+		</div>
+		<br>
+		<div class="row">
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Listado de Productos</div>
+			  <div class="panel-body" *ngIf="!productos">
+			    <p>Cargando listado...</p>
+			  </div>
+			
+			  <!-- Table -->
+			  <table class="table" *ngIf="productos">
+			    <thead>
+				    		<tr>
+				    			<th>Nombre</th>
+				    			<th>Descripcion</th>
+				    			<th>Precio</th>
+				    			<th>Acciones</th>
+				    		</tr>
+			    </thead>
+			    <tbody>
+			    	<tr *ngFor="let producto of productos; let i = index">		    		
+			    		<td>{{producto.name}}</td>
+			    		<td>{{producto.description}}</td>
+			    		<td>{{producto.price}}</td>
+			    		<td>
+			    		<a class="btn btn-default" role="button"  [routerLink]="['/product-detail', producto.id]">Ver</a>
+			    		<a class="btn btn-default" role="button"  [routerLink]="['/product-edit', producto.id]">Editar</a>
+			    		<a class="btn btn-default" role="button" data-toggle="modal" (click)="modalPoup(producto.id)" data-target="#myModal">Eliminar</a>
+			    		<!-- (click)="onDelete(producto.id)"  -->
+			    		</td>
+			    	</tr>
+			    </tbody>
+			  </table>
+			</div>
+		</div>
+	</div>
+</content>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{ titulo_modal }}</h4>
+      </div>
+      <div class="modal-body">
+        <p>{{ texto_modal }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onDelete(confirm)">  Si</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

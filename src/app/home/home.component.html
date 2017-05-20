@@ -1,0 +1,19 @@
+<h3>Home</h3>
+<app-contact></app-contact>
+<hr>
+{{date | date: 'dd/mm/yyyy'}}
+<br>
+{{date | date: 'fullDate' | uppercase}}
+<hr>
+<h3>Pipe</h3>
+<p>{{5 | converter: 9}}</p>
+<hr>
+
+<input type="text" placeholder="Ropa" [(ngModel)]="new_clothe">
+<button (click)="saveClothe()"> Añadir prenda</button>
+<ul>
+	<li  *ngFor="let clothes of list_clothe; let i = index">
+		{{ clothes  }} +  {{i}}
+		<button (click)="deleteClothe(i)">Eliminar</button>
+	</li>
+</ul>

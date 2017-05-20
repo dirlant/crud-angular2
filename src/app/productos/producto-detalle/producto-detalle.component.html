@@ -1,0 +1,19 @@
+<content>
+	<div class="container">
+		<br>
+		<div class="row">
+			<div class="well well-lg">{{titulo}}</div>
+			<a class="btn btn-default" role="button" [routerLink]="['/productos']" >Todos los productos</a>
+		</div>
+		<br>
+		<div class="row">			
+			<ul class="list-group">
+			  <li class="list-group-item">{{producto.id}}</li>
+			  <li class="list-group-item">{{producto.name}}</li>
+			  <li class="list-group-item">{{producto.description}}</li>
+			  <li class="list-group-item">{{producto.price}}</li>			  
+			</ul>
+		</div>
+
+	</div>
+</content>

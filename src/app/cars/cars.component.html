@@ -1,0 +1,52 @@
+<div style="float: left; width: 200px;">
+	<hr>
+	<h3>Form</h3>
+	<hr>
+	<form #formCar="ngForm" (ngSubmit)="onSubmit(); formCar.reset();">
+		<p>
+			<label for="">Nombre</label>
+			<br>
+			<input type="text" name="name" #name="ngModel" [(ngModel)]="obj_car.name" required="true">
+		</p>
+
+		<p>
+			<label for="">Caballos de fuerza</label>
+			<br>
+			<input type="text" name="horse" #horse="ngModel" [(ngModel)]="obj_car.horse" required="true">
+			<span *ngIf="horse.touched && !horse.valid">
+				Debe rellenar el campo
+			</span>
+		</p>
+		<p>
+			<label for="">Color</label>
+			<br>
+			<input type="text" name="color" #color="ngModel" [(ngModel)]="obj_car.color" required="true">
+		</p>
+		
+		<input type="submit" value="Guardar" [disabled]="!formCar.form.valid">
+	</form>
+</div>
+
+<div style="float: left; width: 300px;">
+	<hr>
+	<h3>Lista de Carros</h3>
+	<hr>
+	<ul>
+		<li *ngFor="let car of array_cars; let i = index;">
+			{{ car.name }} - {{ car.horse }} + <button (click)="deleteCar(i)"> delete</button>
+	
+		</li>
+	</ul>
+</div>
+
+<div style="float: left; width: 400px;">
+	<hr>
+	<h3>Lista de Articulos</h3>
+	<hr>
+	<ul *ngIf="array_post" >
+		<li *ngFor="let post of array_post; let i = index;">
+			<strong>{{ post.title }}</strong> - {{ post.body }} + <button (click)="deleteCar(i)"> delete</button>	
+		</li>
+		<span *ngIf="!array_post"> Cargando...</span>
+	</ul>
+</div>
